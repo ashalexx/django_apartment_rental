@@ -2,19 +2,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>People</title>
+    <title>Люди</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="{% static 'js/script.js' %}"></script>
+<!--    <script src="{% static 'js/script.js' %}"></script>-->
 </head>
 <body>
      <header>
+         <a href="{% url 'people_create' %}" class="add-button">+ Добавить профиль</a>
         <h1>Профили людей</h1>
-        <a href="{% url 'people_create' %}" class="add-button">+ Добавить профиль</a>
     </header>
-
-
-
-
      <div class="profiles-container">
         <!-- Профиль -->
          {% for p in people %}

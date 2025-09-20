@@ -6,8 +6,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <header>
+         <a href="{% url 'people_list' %}" class="add-button">← Назад к списку</a>
+        <h1>Изменение профиля </h1>
+    </header>
     <div id="add-profile" class="add-profile-form">
-        <h2>Добавить новый профиль</h2>
+        <h2>Изменить профиль</h2>
+        <h3>{{ people.first_name }} {{ people.last_name }}</h3>
         <form action="#" method="post">
             {% csrf_token %}
 <!--            {{ form.as_p }}-->
@@ -16,7 +21,7 @@
             </div>
             <div class="form-actions">
                 <button type="reset" class="btn btn-delete">Очистить</button>
-                <button type="submit" class="btn btn-view">Добавить профиль</button>
+                <button type="submit" class="btn btn-view">Сохранить</button>
             </div>
         </form>
     </div>

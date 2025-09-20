@@ -1,9 +1,39 @@
-<h2>Удаление человека</h2>
-<p>Вы уверены, что хотите удалить {{ people.name }}?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Удалить</button>
-    <br>
-    <br>
-    <a href="{% url 'people_list' %}">Отмена</a>
-</form>
+<!--<h2>Удаление человека</h2>-->
+<!--<p>Вы уверены, что хотите удалить {{ people.name }}?</p>-->
+<!--<form method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <button type="submit">Удалить</button>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <a href="{% url 'people_list' %}">Отмена</a>-->
+<!--</form>-->
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Аренда квартир</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+         <a href="{% url 'people_list' %}" class="add-button">← Назад к списку</a>
+        <h1>Удаление профиля</h1>
+    </header>
+    <div id="add-profile" class="add-profile-form">
+        <h2>Удалить профиль</h2>
+        <h2>{{ people.first_name }} {{ people.last_name }}</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+<!--            {{ form.as_p }}-->
+            <div class="form-group">
+<!--            <label>{{ form }}</label>-->
+            </div>
+            <div class="form-actions">
+                <button type="reset" class="btn btn-view">Отменить</button>
+                <button type="submit" class="btn btn-delete">Удалить</button>
+            </div>
+        </form>
+    </div>
+
+</body>

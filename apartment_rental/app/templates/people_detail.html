@@ -1,13 +1,81 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Детализация</title>
+    <title>Детальная информация</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <h1>Арендатор</h1>
-    <ul>
-        <li>{{people.people_id}}</li>
-        <li>{{people.first_name}}</li>
-    </ul>
+    <header>
+        <a href="{% url 'people_list' %}" class="add-button">← Назад к списку</a>
+        <h1>Детальная информация</h1>
+    </header>
+    <div class="profile-detail-card">
+        <div class="profile-header">
+            <div class="profile-avatar">ИИ</div>
+            <div class="profile-info">
+                <h2>{{ people.first_name }} {{ people.last_name }}</h2>
+            </div>
+        </div>
+
+        <div class="profile-details">
+            <div class="detail-section">
+                <h3>Основная информация</h3>
+                <div class="detail-item">
+                    <div class="detail-label">Полное имя:</div>
+                    <div class="detail-value">{{ people.first_name }} {{ people.last_name }} {{ people.middle_name }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Дата рождения:</div>
+                    <div class="detail-value">{{ people.date_of_birth }}</div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Контактная информация</h3>
+                <div class="detail-item">
+                    <div class="detail-label">Email:</div>
+                    <div class="detail-value">{{ people.email }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Телефон:</div>
+                    <div class="detail-value">{{ people.phone_number }}</div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <h3>Дополнительная информация</h3>
+                <div class="detail-item">
+                    <div class="detail-label">Серия паспорта:</div>
+                    <div class="detail-value">{{ people.passport_series }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Номер паспорта:</div>
+                    <div class="detail-value">{{ people.passport_number }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Кем выдан паспорт:</div>
+                    <div class="detail-value">{{ people.passport_issued_by }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Когда выдан паспорт:</div>
+                    <div class="detail-value">{{ people.passport_issue_date }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Дата создания профиля:</div>
+                    <div class="detail-value">{{ people.created_at }}</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Дата обновления профиля:</div>
+                    <div class="detail-value">{{ people.updated_at }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-actions">
+            <a href="{% url 'people_edit' people.people_id %}" class="btn btn-edit">Изменить</a>
+            <a href="{% url 'people_delete' people.people_id %}" class="btn btn-delete">Удалить</a>
+        </div>
+    </div>
 </body>
 </html>
