@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Аренда квартир</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="add-profile" class="add-profile-form">
+        <h2>Добавить новый профиль</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+<!--            {{ form.as_p }}-->
+            <div class="form-group">
+            <label>{{ form }}</label>
+            </div>
+            <div class="form-actions">
+                <button type="reset" class="btn btn-delete">Очистить</button>
+                <button type="submit" class="btn btn-view">Добавить профиль</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
